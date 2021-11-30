@@ -14,13 +14,13 @@ public class BucketClient
         _amazonS3 = amazonS3;
     }
 
-    public string InputBucketName { get; private set; }
+    public string InputBucketName { get; private set; } = default!;
 
-    public string FilesPrefix { get; private set; }
+    public string FilesPrefix { get; private set; } = "";
 
     public void AskForInputs()
     {
-        Console.WriteLine("Enter the S3 bucket that you want to copy to? (doesn't have to exist)", Color.Blue);
+        Console.WriteLine("Enter the S3 bucket that you want to copy to? (doesn't have to exist)", Color.LightSkyBlue);
         var s3Bucket = Console.ReadLine();
         if (s3Bucket is null)
         {
@@ -30,7 +30,7 @@ public class BucketClient
         InputBucketName = s3Bucket;
 
         Console.WriteLine("Choose a directory in the bucket (doesn't have to exist) where to store the files",
-            Color.Blue);
+            Color.LightSkyBlue);
         var filesPrefix = Console.ReadLine();
         FilesPrefix = filesPrefix ?? "";
     }
