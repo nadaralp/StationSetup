@@ -1,0 +1,10 @@
+﻿
+Description: Winget installations utilities
+Packages:
+  - PackageName: "YouTube Music"
+    Id: 1
+    InstallationCommands:
+      - Description: "Installing YouTube Music application"
+        Command: "winget install -e --id th-ch.YouTubeMusic"
+      - Description: "Installing Todoist"
+        Command: "winget install -e --id Doist.Todoist"
