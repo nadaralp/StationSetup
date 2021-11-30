@@ -7,4 +7,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AWSSDK.S3" Version="3.7.6" />
+      <PackageReference Include="Colorful.Console" Version="1.2.15" />
+    </ItemGroup>
+
 </Project>
