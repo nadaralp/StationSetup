@@ -23,7 +23,7 @@ public class PackagesSpec
     }
 }
 
-public record PackageInfo
+public class PackageInfo
 {
     public string PackageName { get; set; }
 
@@ -32,7 +32,7 @@ public record PackageInfo
     public int Id { get; set; }
 }
 
-public record InstallationCommand
+public class InstallationCommand
 {
     public string Description { get; set; }
     
