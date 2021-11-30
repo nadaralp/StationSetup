@@ -23,7 +23,6 @@ await directoryIterator.IterateFiles(IterationType.Recursive, (fileInfo) =>
         tasks.Add(bucketClient.PutFileToBucketAsync(fileInfo.FullName));
         return Task.CompletedTask;
 });
-
 await Task.WhenAll(tasks);
 
 Console.WriteLine("All done. Uploaded successfully", Color.White);

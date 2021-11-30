@@ -1,14 +1,165 @@
 ﻿
 Description: Winget installations utilities
 Packages:
-  - PackageName: "YouTube Music"
+  - PackageName: "NodeJS"
     Id: 1
     InstallationCommands:
-      - Description: "Installing YouTube Music application"
-        Command: "winget install -e --id th-ch.YouTubeMusic"
+      - Description: "Installing NodeJS"
+        Command: "winget install -e --id OpenJS.NodeJS"
         
-  - PackageName: "Todoist"
+  - PackageName: "Git"
     Id: 2
     InstallationCommands:
+      - Description: "Installing Git"
+        Command: "winget install -e --id Git.Git"
+        
+  - PackageName: "GitHub Desktop"
+    Id: 3
+    InstallationCommands:
+      - Description: "Installing GitHub Desktop"
+        Command: "winget install -e --id GitHub.GitHubDesktop"      
+        
+  - PackageName: "AWS Cli"
+    Id: 4
+    InstallationCommands:
+      - Description: "Installing AWS Cli"
+        Command: "winget install -e --id Amazon.AWSCLI"   
+        
+  - PackageName: "AWS SAM Cli"
+    Id: 5
+    InstallationCommands:
+      - Description: "Installing AWS SAM Cli"
+        Command: "winget install -e --id winget install -e --id Amazon.SAM-CLI"     
+        
+  - PackageName: "Dotnet SDK"
+    Id: 6
+    InstallationCommands:
+      - Description: "Installing Latest dotnet SDK"
+        Command: "winget install -e --id Microsoft.dotnet"   
+        
+  - PackageName: "Postman"
+    Id: 7
+    InstallationCommands:
+      - Description: "Installing Postman Desktop"
+        Command: "winget install -e --id Postman.Postman"
+        
+  - PackageName: "WSL (Not working yet)"
+    Id: 8
+    InstallationCommands:
+      - Description: "Installing WSL"
+        Command: "echo TODO"    
+        
+  - PackageName: "Ubuntu 20.04 Distro"
+    Id: 9
+    InstallationCommands:
+      - Description: "Installing Ubuntu from AppStore (make sure to be connected)"
+        Command: "winget install -e --id 9N6SVWS3RX71"
+  
+  - PackageName: "Serverless CLI"
+    Id: 10
+    InstallationCommands:
+      - Description: "Installing Serverless CLI"
+        Command: "npm install -g serverless"    
+        
+  - PackageName: "Docker Desktop - Kubernetes included"
+    Id: 11
+    InstallationCommands:
+      - Description: "Installing Docker + Kubernetes"
+        Command: "winget install -e --id Docker.DockerDesktop" 
+        
+  - PackageName: "Python 3.x latest"
+    Id: 12
+    InstallationCommands:
+      - Description: "Installing latest python 3.x"
+        Command: "winget install -e --id Python.Python.3"  
+        
+  - PackageName: "Microsoft SQL Management Studio"
+    Id: 13
+    InstallationCommands:
+      - Description: "Installing Microsoft SQL Management Studio"
+        Command: "winget install -e --id Microsoft.SQLServerManagementStudio"      
+        
+  - PackageName: "PGAdmin"
+    Id: 14
+    InstallationCommands:
+      - Description: "Installing PGAdmin"
+        Command: "winget install -e --id PostgreSQL.pgAdmin"   
+        
+  - PackageName: "ILSpy (msstore)"
+    Id: 15
+    InstallationCommands:
+      - Description: "Installing ILSpy from Microsoft Store"
+        Command: "winget install -e --id 9MXFBKFVSQ13"
+        
+  - PackageName: "Putty"
+    Id: 16
+    InstallationCommands:
+      - Description: "Installing Putty"
+        Command: "winget install -e --id PuTTY.PuTTY"
+        
+  - PackageName: "WinSCP"
+    Id: 17
+    InstallationCommands:
+      - Description: "Installing WinSCP"
+        Command: "winget install -e --id WinSCP.WinSCP"
+        
+  - PackageName: "NotePad++"
+    Id: 18
+    InstallationCommands:
+      - Description: "Installing NotePad++"
+        Command: "winget install -e --id Notepad++.Notepad++"
+        
+  - PackageName: "DrawIO"
+    Id: 19
+    InstallationCommands:
+      - Description: "Installing DrawIO"
+        Command: "winget install -e --id JGraph.Draw"
+        
+  - PackageName: "YouTube Music"
+    Id: 20
+    InstallationCommands:
+      - Description: "Installing YouTube Music"
+        Command: "winget install -e --id th-ch.YouTubeMusic"
+        
+  - PackageName: "ClipClip Clipboard Manager"
+    Id: 21
+    InstallationCommands:
+      - Description: "Installing ClipClip"
+        Command: "winget install -e --id Vitzo.ClipClip"
+        
+  - PackageName: "Slack"
+    Id: 22
+    InstallationCommands:
+      - Description: "Installing Slack"
+        Command: "winget install -e --id SlackTechnologies.Slack"
+        
+  - PackageName: "Clockify - Time manager"
+    Id: 23
+    InstallationCommands:
+      - Description: "Installing Clockify"
+        Command: "winget install -e --id Clockify.Clockify"
+        
+  - PackageName: "Todoist"
+    Id: 24
+    InstallationCommands:
       - Description: "Installing Todoist"
-        Command: "winget install -e --id Doist.Todoist"
+        Command: "winget install -e --id Doist.Todoist"       
+        
+  - PackageName: "VSCode"
+    Id: 25
+    InstallationCommands:
+      - Description: "Installing Visual Studio Code"
+        Command: "winget install -e --id Microsoft.VisualStudioCode"
+        
+  - PackageName: "Rider"
+    Id: 26
+    InstallationCommands:
+      - Description: "Installing Rider IDE"
+        Command: "winget install -e --id JetBrains.Rider"   
+        
+  - PackageName: "Rider EAP - Early Access"
+    Id: 27
+    InstallationCommands:
+      - Description: "Installing Rider EAP IDE"
+        Command: "winget install -e --id JetBrains.Rider.EAP"        
+  

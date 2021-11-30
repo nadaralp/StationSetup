@@ -18,7 +18,7 @@ public class PackageInstallerDriver : IPackageInstallerDriver
 
         foreach (var packageInfo in _packagesSpec.Packages)
         {
-            string packageOptionText = $"* {packageInfo.PackageName} ({packageInfo.Id})";
+            string packageOptionText = $"({packageInfo.Id}) {packageInfo.PackageName}";
             Console.WriteLine(packageOptionText);
         }
 
@@ -42,7 +42,7 @@ public class PackageInstallerDriver : IPackageInstallerDriver
 
     public void RequireConfirmationOrThrow(IEnumerable<PackageInfo> selectedPackagesToInstall)
     {
-        string selectedPackagesCommaSeparated = string.Join(',', selectedPackagesToInstall.Select(x => x.PackageName));
+        string selectedPackagesCommaSeparated = string.Join(", ", selectedPackagesToInstall.Select(x => x.PackageName));
         Console.WriteLine($"Selected packages: {selectedPackagesCommaSeparated}");
         Console.WriteLine("Do you wish to continue? Y/n");
         string doesWantToContinue = Console.ReadLine()?.ToLower() ?? "n";
