@@ -21,9 +21,14 @@ await bucketClient.CreateBucketIfDoesntExist();
 
 DirectoryContent directoryContent = new(folderPathToCopy, appSettings);
 DirectoryIterator directoryIterator = new DirectoryIterator(directoryContent, appSettings);
-directoryIterator.IterateFiles(IterationType.Recursive, async (FileInfo fileInfo) =>
+
+var tasks = new List<Task>();
+await directoryIterator.IterateFiles(IterationType.Recursive, (fileInfo) =>
 {
-    await bucketClient.PutFileToBucketAsync(fileInfo.FullName);
+        tasks.Add(bucketClient.PutFileToBucketAsync(fileInfo.FullName));
+        return Task.CompletedTask;
 });
 
-await Task.Delay(10000);
+await Task.WhenAll(tasks);
+
+Console.WriteLine("All done. Uploaded successfully", Color.White);

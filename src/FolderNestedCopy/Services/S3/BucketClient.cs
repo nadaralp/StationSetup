@@ -1,5 +1,7 @@
-﻿using Amazon.S3;
+﻿using System.Text.RegularExpressions;
+using Amazon.S3;
 using Amazon.S3.Model;
+using FolderNestedCopy.Services.IO;
 
 namespace FolderNestedCopy.Services.S3;
 
@@ -13,7 +15,7 @@ public class BucketClient
     }
 
     public string InputBucketName { get; private set; }
-    
+
     public string FilesPrefix { get; private set; }
 
     public void AskForInputs()
@@ -24,9 +26,11 @@ public class BucketClient
         {
             throw new Exception("Empty bucket name is not a valid input");
         }
+
         InputBucketName = s3Bucket;
-        
-        Console.WriteLine("Choose a directory (doesn't have to exist) in which to store all the files in S3", Color.Blue);
+
+        Console.WriteLine("Choose a directory in the bucket (doesn't have to exist) where to store the files",
+            Color.Blue);
         var filesPrefix = Console.ReadLine();
         FilesPrefix = filesPrefix ?? "";
     }
@@ -65,16 +69,22 @@ public class BucketClient
     {
         try
         {
-            string fileKey = string.IsNullOrEmpty(FilesPrefix) ? file : $"{FilesPrefix}/{file}";
+            
+            string fileWithoutDiskPartition = FileHelper.RemoveDiskPartitionFromKey(file);
+            string fileWithForwardSlashes = FileHelper.ReplaceBackSlashWithForwardSlash(fileWithoutDiskPartition);
+
+            string filePathSanitized = fileWithForwardSlashes;
+            string filePath = string.IsNullOrEmpty(FilesPrefix) ? filePathSanitized : $"{FilesPrefix}/{filePathSanitized}";
+                
             using var streamReader = new StreamReader(file);
             var request = await _amazonS3.PutObjectAsync(new PutObjectRequest
             {
-                Key = fileKey,
+                Key =  filePath,
                 BucketName = InputBucketName,
                 TagSet = new() { new Tag { Key = "User", Value = Environment.UserName } },
                 InputStream = streamReader.BaseStream
             });
-            
+
             Console.WriteLine($"Uploaded file:{file}", Color.Green);
         }
         catch (Exception e)
@@ -82,6 +92,7 @@ public class BucketClient
             Console.WriteLine($"Error occured while tried to upload file {file}", Color.Red);
             Console.WriteLine(e.Message);
         }
-        
     }
+
+
 }
