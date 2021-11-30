@@ -1,9 +1,7 @@
-﻿using System.Text.RegularExpressions;
-using Amazon.S3;
-using Amazon.S3.Model;
-using FolderNestedCopy.Services.IO;
+﻿using Amazon.S3.Model;
+using FolderNestedCopy.Libs.IO;
 
-namespace FolderNestedCopy.Services.S3;
+namespace FolderNestedCopy.Libs.S3;
 
 public class BucketClient
 {
@@ -85,7 +83,7 @@ public class BucketClient
                 InputStream = streamReader.BaseStream
             });
 
-            Console.WriteLine($"Uploaded file:{file}", Color.Green);
+            Console.WriteLine($"Uploaded file:{file}", Color.GreenYellow);
         }
         catch (Exception e)
         {

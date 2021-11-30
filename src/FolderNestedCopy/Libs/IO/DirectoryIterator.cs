@@ -1,4 +1,4 @@
-﻿namespace FolderNestedCopy.Services.IO;
+﻿namespace FolderNestedCopy.Libs.IO;
 
 public enum IterationType
 {

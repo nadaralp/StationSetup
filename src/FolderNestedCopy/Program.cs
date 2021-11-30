@@ -1,3 +1,5 @@
+
+
 var appSettings = await AppSettings.Configure();
 
 Console.WriteLine("Enter the folder path you want to copy", Color.LightSkyBlue);

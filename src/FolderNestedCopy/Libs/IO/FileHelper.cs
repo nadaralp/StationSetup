@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace FolderNestedCopy.Services.IO;
+namespace FolderNestedCopy.Libs.IO;
 
 public static class FileHelper
 {
