@@ -2,7 +2,7 @@
 
 using YamlDotNet.Serialization;
 
-namespace WingetInstallerManager.Libs.Winget;
+namespace WingetInstallerManager.Libs.PackageInstaller;
 
 public class PackagesSpec
 {

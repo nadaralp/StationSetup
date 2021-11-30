@@ -1,40 +1,18 @@
-﻿using WingetInstallerManager.Libs.Process;
-using WingetInstallerManager.Libs.Winget;
+﻿using WingetInstallerManager.Libs.PackageInstaller;
+using WingetInstallerManager.Libs.Process;
 
-var packagesSpec = PackagesSpec.Initialize();
+PackagesSpec packagesSpec = PackagesSpec.Initialize();
+IPackageInstallerDriver packageInstallerDriver = new PackageInstallerDriver(packagesSpec);
 
-Console.WriteLine("Choose package to install");
-foreach (var packageInfo in packagesSpec.Packages)
+try
 {
-    string packageOptionText = $"* {packageInfo.PackageName} ({packageInfo.Id})";
-    Console.WriteLine(packageOptionText);
+    var selectedPackagesToInstall = packageInstallerDriver.AskUserForPackagesToInstall().ToList();
+    packageInstallerDriver.RequireConfirmationOrThrow(selectedPackagesToInstall);
+    await packageInstallerDriver.InstallAsync(selectedPackagesToInstall);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Application exited.");
+    Console.WriteLine(e.Message);
 }
 
-string chosenOption = Console.ReadLine();
-if (!int.TryParse(chosenOption, out int chosenOptionInt))
-{
-    Console.WriteLine("Please choose by specifying the option ID in the parenthesis. For example: 1");
-    return;
-}
-
-var packageToInstall = packagesSpec.Packages
-    .FirstOrDefault(x => x.Id == chosenOptionInt);
-
-if (packageToInstall is null)
-{
-    Console.WriteLine("Specified invalid ID for installation.");
-    return;
-}
-
-var installationTasks = new List<Task>();
-foreach (var installationCommand in packageToInstall.InstallationCommands)
-{
-    Task installationTask = Task.Run(() =>
-    {
-        Console.WriteLine(installationCommand.Description);
-        ProcessUtils.ExecuteCommand(installationCommand.Command);
-    });
-    installationTasks.Add(installationTask);
-}
-
-await Task.WhenAll(installationTasks);

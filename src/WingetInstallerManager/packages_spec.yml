@@ -6,5 +6,9 @@ Packages:
     InstallationCommands:
       - Description: "Installing YouTube Music application"
         Command: "winget install -e --id th-ch.YouTubeMusic"
+        
+  - PackageName: "Todoist"
+    Id: 2
+    InstallationCommands:
       - Description: "Installing Todoist"
         Command: "winget install -e --id Doist.Todoist"
