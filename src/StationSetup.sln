@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyFilesFromUpstream", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WingetInstallerManager", "WingetInstallerManager\WingetInstallerManager.csproj", "{0CD85C14-6386-41D6-8441-6DEED9F92FA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StationSetup.CLI", "StationSetup.CLI\StationSetup.CLI.csproj", "{C9BECE26-C8E6-46F7-B310-BE232074FAA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{0CD85C14-6386-41D6-8441-6DEED9F92FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CD85C14-6386-41D6-8441-6DEED9F92FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CD85C14-6386-41D6-8441-6DEED9F92FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9BECE26-C8E6-46F7-B310-BE232074FAA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9BECE26-C8E6-46F7-B310-BE232074FAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9BECE26-C8E6-46F7-B310-BE232074FAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9BECE26-C8E6-46F7-B310-BE232074FAA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
