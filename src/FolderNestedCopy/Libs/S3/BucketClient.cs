@@ -63,15 +63,17 @@ public class BucketClient
         Console.WriteLine($"{InputBucketName} Created successfully", Color.GreenYellow);
     }
 
-    public async Task PutFileToBucketAsync(string file)
+    public async Task PutFileToBucketAsync(string file, string userGivenFolderPathToCopy)
     {
         try
         {
-            
-            string fileWithoutDiskPartition = FileHelper.RemoveDiskPartitionFromKey(file);
-            string fileWithForwardSlashes = FileHelper.ReplaceBackSlashWithForwardSlash(fileWithoutDiskPartition);
 
-            string filePathSanitized = fileWithForwardSlashes;
+            var fileWithoutUserPath = FileHelper.RemoveUserGivenFolderPathExceptLastFolder(file, userGivenFolderPathToCopy);
+            //string fileWithoutDiskPartition = FileHelper.RemoveDiskPartitionFromKey(file);
+            //string fileWithForwardSlashes = FileHelper.ReplaceBackSlashWithForwardSlash(fileWithoutDiskPartition);
+            //string fileWithoutUserGivenPath = FileHelper.RemoveUserGivenFolderPathExceptLastFolder(file, userGivenFolderPathToCopy);
+
+            string filePathSanitized = fileWithoutUserPath;
             string filePath = string.IsNullOrEmpty(FilesPrefix) ? filePathSanitized : $"{FilesPrefix}/{filePathSanitized}";
                 
             using var streamReader = new StreamReader(file);
