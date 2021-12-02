@@ -1,1 +1,1 @@
-﻿dotnet publish -c Release
+﻿dotnet publish -c Release --self-contained true --runtime win-x64
